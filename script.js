@@ -56,8 +56,8 @@ async function fetchGitHubRepos() {
             const card = document.createElement('article');
             card.className = 'project-card';
             
-            // URL de l'image Social Preview (OpenGraph) générée par GitHub
-            const imageUrl = `https://opengraph.githubassets.com/1/Madumtv/${repo.name}`;
+            // URL de l'image Social Preview (OpenGraph) générée par GitHub (+ Cache-buster)
+            const imageUrl = `https://opengraph.githubassets.com/1/Madumtv/${repo.name}?v=2`;
             
             card.innerHTML = `
                 <div class="project-image" style="background-image: url('${imageUrl}')"></div>
