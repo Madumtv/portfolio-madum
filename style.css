@@ -103,7 +103,7 @@ nav a:hover {
 /* HERO SECTION */
 #hero {
     min-height: auto;
-    padding: 8rem 2rem 2rem 2rem;
+    padding: 3rem 2rem 0 2rem; /* Réduction de 8rem à 3rem en haut, 0 en bas */
     position: relative;
     display: flex;
     justify-content: center;
@@ -132,6 +132,10 @@ nav a:hover {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     opacity: 0.9;
+}
+
+.cta-buttons {
+    margin-bottom: 0; /* Pas d'espace après les boutons */
 }
 
 /* LIVE BADGE */
@@ -191,7 +195,7 @@ nav a:hover {
 
 /* PROJECTS */
 #projects {
-    padding: 2rem 2rem 6rem 2rem;
+    padding: 0 2rem 6rem 2rem; /* Zéro padding top pour coller au Hero */
     max-width: 1200px;
     margin: 0 auto;
 }
