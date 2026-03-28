@@ -112,6 +112,8 @@ nav a:hover {
 .hero-content {
     max-width: 800px;
     z-index: 10;
+    opacity: 1 !important; /* Force la visibilité immédiate */
+    transform: none !important; /* Pas de décalage initial */
 }
 
 .hero-content h1 {
