@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madumtv | Portfolio Créatif</title>
+    <meta name="description" content="Portfolio moderne de Madumtv - Développeur et Créateur.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header id="main-nav">
+        <nav>
+            <div class="logo">Madum<span>TV</span></div>
+            <ul>
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <div class="hero-content">
+                <div class="status-badge live-badge">
+                    <span class="pulsating-dot"></span> EN DIRECT
+                </div>
+                <h1>Créativité <span>Digitale</span> Sans Limites</h1>
+                <p>Développeur passionné par les architectures innovantes et le design premium.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">Voir mes projets</a>
+                    <a href="https://github.com/Madumtv" target="_blank" class="btn secondary">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2 class="section-title">Mes Réalisations</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #6d28d9, #1e1b4b);"></div>
+                    <div class="project-info">
+                        <h3>Système Antigravity</h3>
+                        <p>Configuration avancée d'agents IA intelligents.</p>
+                        <span class="tag">AI</span> <span class="tag">Automation</span>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #1e1b4b, #6d28d9);"></div>
+                    <div class="project-info">
+                        <h3>Portfolio Moderne</h3>
+                        <p>Design premium avec Glassmorphism.</p>
+                        <span class="tag">Web</span> <span class="tag">Premium</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="glass-form">
+                <h2>Me Contacter</h2>
+                <form id="contact-form">
+                    <input type="text" placeholder="Votre Nom" required>
+                    <input type="email" placeholder="Votre Email" placeholder="Email" required>
+                    <textarea placeholder="Votre Message" rows="5" required></textarea>
+                    <button type="submit" class="btn primary">Envoyer le message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Madumtv. Built with Antigravity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
