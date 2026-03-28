@@ -117,9 +117,12 @@ if (form) {
         e.preventDefault();
         const btn = form.querySelector('button');
         const originalText = btn.innerText;
-        btn.innerText = "Message Envoyé !";
+        btn.innerText = "Message Envoyé (Simulation) !";
         btn.style.backgroundColor = "#10b981"; // Green Success
         form.reset();
+        
+        console.log("Note: Pour recevoir réellement les messages sur GitHub Pages, vous pouvez utiliser un service comme Formspree.");
+        alert("C'est une simulation ! Pour recevoir de vrais emails, demandez-moi d'intégrer 'Formspree' (c'est gratuit).");
         setTimeout(() => {
             btn.innerText = originalText;
             btn.style.backgroundColor = "";
