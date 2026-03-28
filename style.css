@@ -234,6 +234,7 @@ nav a:hover {
 .project-image {
     width: 100%;
     aspect-ratio: 1.91 / 1; /* Ratio Social Preview de GitHub */
+    background: linear-gradient(135deg, #1e1b4b, #4c1d95); /* Fond de secours élégant */
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid var(--btn-border);
