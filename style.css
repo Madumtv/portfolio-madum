@@ -224,8 +224,24 @@ nav a:hover {
 .project-card {
     background: var(--card-bg);
     border-radius: 1rem;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Important pour les images */
+    border: 1px solid var(--btn-border);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 1.91 / 1; /* Ratio Social Preview de GitHub */
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--btn-border);
+    transition: transform 0.5s;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
 }
 
 .project-img {
