@@ -110,22 +110,13 @@ function updateThemeIcon(iconName) {
     lucide.createIcons();
 }
 
-// FORMULAIRE DE CONTACT (Simulation)
+// FORMULAIRE DE CONTACT (Simulation visuelle et envoi réel via Formspree)
 const form = document.getElementById('contact-form');
 if (form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    form.addEventListener('submit', function(e) {
+        // On laisse l'événement se propager pour l'envoi réel à Formspree
         const btn = form.querySelector('button');
-        const originalText = btn.innerText;
-        btn.innerText = "Message Envoyé (Simulation) !";
-        btn.style.backgroundColor = "#10b981"; // Green Success
-        form.reset();
-        
-        console.log("Note: Pour recevoir réellement les messages sur GitHub Pages, vous pouvez utiliser un service comme Formspree.");
-        alert("C'est une simulation ! Pour recevoir de vrais emails, demandez-moi d'intégrer 'Formspree' (c'est gratuit).");
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.style.backgroundColor = "";
-        }, 3000);
+        btn.innerText = "Envoi en cours...";
+        btn.disabled = true;
     });
 }

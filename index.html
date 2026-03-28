@@ -53,10 +53,10 @@
         <section id="contact">
             <div class="glass-form">
                 <h2>Contact</h2>
-                <form id="contact-form">
-                    <input type="text" placeholder="Votre Nom" required>
-                    <input type="email" placeholder="Votre Email" placeholder="Email" required>
-                    <textarea placeholder="Votre Message" rows="5" required></textarea>
+                <form id="contact-form" action="https://formspree.io/f/marin.dumont@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Votre Nom" required>
+                    <input type="email" name="email" placeholder="Votre Email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Votre Message" rows="5" required></textarea>
                     <button type="submit" class="btn primary">Envoyer le message</button>
                 </form>
             </div>
