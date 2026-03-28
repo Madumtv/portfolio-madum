@@ -110,13 +110,49 @@ function updateThemeIcon(iconName) {
     lucide.createIcons();
 }
 
-// FORMULAIRE DE CONTACT (Simulation visuelle et envoi réel via Formspree)
+// FORMULAIRE DE CONTACT (Envoi réel via EmailJS)
+(function() {
+    // Initialisation d'EmailJS (Sera remplacé par la vraie Public Key)
+    emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
 const form = document.getElementById('contact-form');
 if (form) {
     form.addEventListener('submit', function(e) {
-        // On laisse l'événement se propager pour l'envoi réel à Formspree
+        e.preventDefault();
+        
         const btn = form.querySelector('button');
+        const originalText = btn.innerText;
         btn.innerText = "Envoi en cours...";
         btn.disabled = true;
+
+        // Préparation des paramètres (doivent correspondre aux {{variables}} du template EmailJS)
+        const params = {
+            name: document.getElementById('from_name').value,
+            email: document.getElementById('reply_to').value,
+            message: document.getElementById('message').value
+        };
+
+        // Envoi via EmailJS (Placeholders à remplir)
+        emailjs.send('service_gi5n6yi', 'YOUR_TEMPLATE_ID', params)
+            .then(function() {
+                btn.innerText = "Message Envoyé !";
+                btn.style.backgroundColor = "#10b981"; // Success Green
+                form.reset();
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "";
+                    btn.disabled = false;
+                }, 3000);
+            }, function(error) {
+                console.error('Erreur EmailJS:', error);
+                btn.innerText = "Erreur d'envoi...";
+                btn.style.backgroundColor = "#ef4444"; // Error Red
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "";
+                    btn.disabled = false;
+                }, 3000);
+            });
     });
 }
