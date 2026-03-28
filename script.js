@@ -112,8 +112,8 @@ function updateThemeIcon(iconName) {
 
 // FORMULAIRE DE CONTACT (Envoi réel via EmailJS)
 (function() {
-    // Initialisation d'EmailJS (Sera remplacé par la vraie Public Key)
-    emailjs.init("YOUR_PUBLIC_KEY");
+    // Initialisation d'EmailJS avec votre clé publique
+    emailjs.init("cSNygHT2LYqOUaIqV");
 })();
 
 const form = document.getElementById('contact-form');
@@ -133,8 +133,8 @@ if (form) {
             message: document.getElementById('message').value
         };
 
-        // Envoi via EmailJS (Placeholders à remplir)
-        emailjs.send('service_gi5n6yi', 'YOUR_TEMPLATE_ID', params)
+        // Envoi via EmailJS
+        emailjs.send('service_gi5n6yi', 'template_kkbqh1h', params)
             .then(function() {
                 btn.innerText = "Message Envoyé !";
                 btn.style.backgroundColor = "#10b981"; // Success Green
