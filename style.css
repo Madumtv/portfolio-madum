@@ -109,7 +109,7 @@ nav a:hover {
 /* HERO SECTION */
 #hero {
     min-height: auto;
-    padding: 3rem 2rem 0 2rem; /* Réduction de 8rem à 3rem en haut, 0 en bas */
+    padding: 6rem 2rem 0 2rem; /* Augmentation de 3rem à 6rem pour descendre le badge */
     position: relative;
     display: flex;
     justify-content: center;
