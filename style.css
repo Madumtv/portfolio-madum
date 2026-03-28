@@ -247,11 +247,11 @@ nav a:hover {
 .glass-form {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05); /* Augmentation légère de l'opacité */
     padding: 3rem;
     border-radius: 2rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px); /* Augmentation du flou pour isoler le contenu */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bordure plus marquée */
 }
 
 .glass-form h2 { margin-bottom: 2rem; text-align: center; }
@@ -259,12 +259,13 @@ nav a:hover {
 form { display: flex; flex-direction: column; gap: 1rem; }
 
 input, textarea {
-    background: rgba(12, 14, 20, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(12, 14, 20, 0.9); /* Fond plus sombre et opaque pour les champs */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure plus visible */
     padding: 1rem;
     border-radius: 0.5rem;
     color: white;
     outline: none;
+    transition: 0.3s;
 }
 
 input:focus, textarea:focus {
