@@ -25,13 +25,14 @@ const observer = new IntersectionObserver((entries) => {
 function applyScrollAnimation() {
     // On ne sélectionne que les éléments qui ont besoin d'une animation au scroll
     // On exclut définitivement le Hero pour qu'il soit statique et stable
-    document.querySelectorAll('.project-card, .glass-form').forEach(el => {
+    document.querySelectorAll('.project-card').forEach(el => {
         // Si l'élément est déjà visible, on ne le cache pas à nouveau
-        if (el.style.opacity === '1') return;
+        if (el.style.opacity === '1' || el.classList.contains('revealed')) return;
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s ease-out';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease-out';
         observer.observe(el);
+        el.classList.add('revealed');
     });
 }
 applyScrollAnimation();
