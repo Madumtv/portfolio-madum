@@ -7,9 +7,9 @@
     --header-bg: rgba(12, 14, 20, 0.8);
     --btn-border: rgba(255, 255, 255, 0.1);
     --nav-blur: 15px;
-    --input-bg: rgba(12, 14, 20, 0.9);
-    --input-text: #ffffff;
-    --input-border: rgba(255, 255, 255, 0.2);
+    --input-bg: #ffffff;
+    --input-text: #0f172a;
+    --input-border: rgba(0, 0, 0, 0.1);
 }
 
 /* LIGHT MODE */
