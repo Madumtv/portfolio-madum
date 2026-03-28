@@ -102,18 +102,21 @@ nav a:hover {
 
 /* HERO SECTION */
 #hero {
-    height: 100vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 2rem;
-    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+    padding: 6rem 2rem 2rem 2rem;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
     line-height: 1.1;
 }
 
@@ -124,25 +127,24 @@ nav a:hover {
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
 }
 
 /* LIVE BADGE */
-.live-badge {
+.status-badge {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--accent-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    padding: 0.4rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--accent-color);
 }
 
 .pulsating-dot {

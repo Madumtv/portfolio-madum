@@ -23,7 +23,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 function applyScrollAnimation() {
-    document.querySelectorAll('.project-card, .hero-content, .glass-form').forEach(el => {
+    document.querySelectorAll('.project-card, .glass-form').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.8s ease-out';
