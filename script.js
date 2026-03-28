@@ -56,9 +56,6 @@ async function fetchGitHubRepos() {
             const card = document.createElement('article');
             card.className = 'project-card';
             
-            // Image aléatoire par gradient pour correspondre au design premium
-            const gradients = [
-                'linear-gradient(135deg, #6d28d9, #1e1b4b)',
             // URL de l'image Social Preview (OpenGraph) générée par GitHub
             const imageUrl = `https://opengraph.githubassets.com/1/Madumtv/${repo.name}`;
             
