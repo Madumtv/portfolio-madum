@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
+            /* DARK THEME (Default) */
             --bg-deep: #080a0f;
             --accent-main: #7c3aed;
             --accent-glow: rgba(124, 58, 237, 0.4);
@@ -15,6 +16,19 @@
             --glass-border: rgba(255, 255, 255, 0.08);
             --text-p: #ffffff;
             --text-s: #a1a1aa;
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        body.light-mode {
+            /* LIGHT THEME */
+            --bg-deep: #f8fafc;
+            --accent-main: #6d28d9;
+            --accent-glow: rgba(109, 40, 217, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --text-p: #0f172a;
+            --text-s: #475569;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,8 +41,9 @@
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 40%);
-            padding: 3rem 1rem;
+            padding: 2rem 1rem 5rem 1rem;
             line-height: 1.6;
+            transition: background-color 0.4s, color 0.4s;
         }
 
         .container {
@@ -39,28 +54,72 @@
         /* HEADER */
         header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         header h1 {
             font-size: 3.5rem;
             letter-spacing: -2px;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, #a78bfa);
+            background: linear-gradient(to right, var(--text-p), var(--accent-main));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header p {
             color: var(--text-s);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
+        }
+
+        /* STATUS & THEME TOGGLE */
+        .header-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .status-header {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .status-badge {
+            background: var(--glass-bg);
+            color: #10b981;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-p);
+            padding: 0.6rem;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-main);
+            color: var(--accent-main);
         }
 
         /* ACTIONS GRID */
         .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -74,14 +133,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
 
         .card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
+            border-radius: 1.2rem;
+            padding: 2rem;
             backdrop-filter: blur(20px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
@@ -92,142 +151,85 @@
             justify-content: space-between;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(124, 58, 237, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
         .card:hover {
             transform: translateY(-8px);
             border-color: var(--accent-main);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow);
+            box-shadow: var(--card-shadow), 0 0 15px var(--accent-glow);
         }
-
-        .card:hover::before { opacity: 1; }
 
         .card i {
-            width: 50px; height: 50px;
+            width: 42px; height: 42px;
             color: var(--accent-main);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            color: var(--text-s);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
+        .card h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+        .card p { color: var(--text-s); font-size: 0.9rem; margin-bottom: 1.5rem; }
 
         .btn-launch {
             background: var(--accent-main);
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 0.8rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 0.6rem;
             font-weight: 700;
             text-align: center;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         /* SKILLS SHOWCASE */
         .skills-section {
-            background: rgba(255,255,255,0.02);
-            border: 1px dashed var(--glass-border);
-            border-radius: 2rem;
-            padding: 3rem;
-            margin-bottom: 5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
         }
 
-        .skill-item {
-            display: flex;
-            gap: 1.2rem;
-        }
+        .skill-item { display: flex; gap: 1rem; }
 
         .skill-icon {
             flex-shrink: 0;
-            width: 48px; height: 48px;
+            width: 42px; height: 42px;
             background: rgba(124, 58, 237, 0.1);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 0.8rem;
+            display: flex; align-items: center; justify-content: center;
             color: var(--accent-main);
             border: 1px solid var(--accent-glow);
         }
 
-        .skill-content h4 { margin-bottom: 0.5rem; font-size: 1.2rem; }
-        .skill-content p { font-size: 0.9rem; color: var(--text-s); }
+        .skill-content h4 { margin-bottom: 0.3rem; font-size: 1.1rem; }
+        .skill-content p { font-size: 0.85rem; color: var(--text-s); }
 
         /* WORKFLOW GUIDE */
         .workflow {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(124, 58, 237, 0.05));
-            border-radius: 2.5rem;
-            padding: 4rem;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), transparent);
+            border-radius: 2rem;
+            padding: 3rem;
             border: 1px solid var(--accent-glow);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
 
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-        }
-
+        .steps { display: flex; flex-direction: column; gap: 2rem; }
+        .step { display: flex; align-items: flex-start; gap: 1.5rem; }
         .step-num {
-            width: 40px; height: 40px;
+            width: 36px; height: 36px;
             background: var(--accent-main);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px var(--accent-glow);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; flex-shrink: 0;
+            box-shadow: 0 0 10px var(--accent-glow);
+            color: white;
         }
 
-        .step-text strong { display: block; font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
-        .step-text p { color: var(--text-s); font-size: 1.05rem; }
-        .step-text span { color: var(--accent-main); font-weight: 700; background: rgba(124,58,237,0.1); padding: 0.2rem 0.5rem; border-radius: 4px; }
-
-        /* STATUS BADGES */
-        .status-header {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-        .status-badge {
-            background: rgba(16, 185, 129, 0.1);
-            color: #10b981;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .step-text strong { display: block; font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .step-text p { color: var(--text-s); font-size: 1rem; }
+        .step-text span { color: var(--accent-main); font-weight: 700; }
 
         /* TOAST */
         #toast {
@@ -240,25 +242,31 @@
             padding: 1.2rem 3rem;
             border-radius: 4rem;
             font-weight: 700;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
             transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 1000;
             text-align: center;
         }
-
         #toast.show { transform: translateX(-50%) translateY(0); }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <!-- HEADER TOOLS -->
+        <div class="header-tools">
             <div class="status-header">
                 <div class="status-badge"><span style="width:8px; height:8px; background:#10b981; border-radius:50%; display:inline-block"></span> Bridge Online</div>
-                <div class="status-badge" style="color:#60a5fa; background:rgba(96,165,250,0.1); border-color:rgba(96,165,250,0.2)">Turbo Mode Active</div>
+                <div class="status-badge" style="color:#60a5fa; background:rgba(96,165,250,0.1); border-color:rgba(96,165,250,0.2)">Turbo Active</div>
             </div>
+            <button class="theme-toggle" id="theme-toggle" title="Changer le thème">
+                <i data-lucide="sun" id="theme-icon"></i>
+            </button>
+        </div>
+
+        <header>
             <h1>Antigravity<span>OS</span></h1>
-            <p>Le centre de contrôle premium de votre autonomie digitale.</p>
+            <p>Centre de contrôle interactif pour votre agent autonome.</p>
         </header>
 
         <!-- COMMANDES DIRECTES -->
@@ -268,72 +276,72 @@
                 <i data-lucide="plus-circle"></i>
                 <div class="card-content">
                     <h3>Initialiser</h3>
-                    <p>Déploie instantanément un nouvel environnement de travail avec Git, GitHub et vos 6 Superpowers Skills.</p>
+                    <p>Déploie un nouvel environnement complet : Git, GitHub et vos 6 Skills.</p>
                 </div>
-                <div class="btn-launch">Déclencher l'automatisation</div>
+                <div class="btn-launch">Déclencher</div>
             </div>
             <div class="card" onclick="runCmd('./create-skill.ps1')">
                 <i data-lucide="cpu"></i>
                 <div class="card-content">
-                    <h3>Nouvelle Skill</h3>
-                    <p>Faites évoluer votre IA en lui créant une nouvelle faculté isolée et prête à être programmée.</p>
+                    <h3>Générer Skill</h3>
+                    <p>Créez une nouvelle faculté pour étendre les capacités de votre IA.</p>
                 </div>
-                <div class="btn-launch">Lancer le générateur</div>
+                <div class="btn-launch">Lancer</div>
             </div>
             <div class="card" onclick="runCmd('Deploy to Pages')">
                 <i data-lucide="send"></i>
                 <div class="card-content">
                     <h3>Full Sync</h3>
-                    <p>Synchronise vos branches, fusionne vos travaux et met à jour votre site public en une seule action.</p>
+                    <p>Synchronise master/gh-pages et publie votre site sur le web.</p>
                 </div>
-                <div class="btn-launch">Mise en ligne globale</div>
+                <div class="btn-launch">Mise en ligne</div>
             </div>
         </div>
 
         <!-- ARSENAL DES SKILLS -->
-        <div class="section-title"><i data-lucide="shield-check"></i> Arsenal des Skills (Vos Super-Pouvoirs)</div>
+        <div class="section-title"><i data-lucide="shield-check"></i> Arsenal des Skills (Super-Pouvoirs)</div>
         <div class="skills-section">
             <div class="skills-grid">
                 <div class="skill-item">
                     <div class="skill-icon"><i data-lucide="clipboard-list"></i></div>
                     <div class="skill-content">
                         <h4>Executing Plans</h4>
-                        <p>Le stratège. Gère les checklists rigoureuses (task.md) pour un développement sans erreur.</p>
+                        <p>Gère les checklists méthodiques pour un développement sans erreur.</p>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon"><i data-lucide="globe"></i></div>
                     <div class="skill-content">
                         <h4>Deploy to Pages</h4>
-                        <p>L'expéditeur. Automatise tout le workflow Git pour une publication instantanée sur le web.</p>
+                        <p>Automatise le workflow Git pour une publication instantanée.</p>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon"><i data-lucide="pen-tool"></i></div>
                     <div class="skill-content">
                         <h4>Writing Skills</h4>
-                        <p>L'Architecte. Permet d'étendre les capacités de l'agent en codant de nouvelles fonctions.</p>
+                        <p>Permet d'étendre les capacités de l'agent en codant de nouvelles fonctions.</p>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon"><i data-lucide="git-pull-request"></i></div>
                     <div class="skill-content">
                         <h4>Request Review</h4>
-                        <p>L'avocat. Prépare et pousse vos modifications sur GitHub via des Pull Requests propres.</p>
+                        <p>Prépare et pousse vos modifications sur GitHub via des Pull Requests.</p>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon"><i data-lucide="package-check"></i></div>
                     <div class="skill-content">
                         <h4>Finish Branch</h4>
-                        <p>Le perfectionniste. Fusionne les branches approuvées et nettoie les résidus de code.</p>
+                        <p>Fusionne les branches approuvées et nettoie les résidus de code.</p>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon"><i data-lucide="layers"></i></div>
                     <div class="skill-content">
                         <h4>Git Worktrees</h4>
-                        <p>Le multidimensionnel. Permet de jongler entre plusieurs versions d'un projet sans jamais bloquer.</p>
+                        <p>Travaillez sur plusieurs versions d'un projet simultanément.</p>
                     </div>
                 </div>
             </div>
@@ -347,21 +355,21 @@
                     <div class="step-num">1</div>
                     <div class="step-text">
                         <strong>Bridge Engine</strong>
-                        <p>Assurez-vous que `python bridge.py` tourne en tâche de fond. C'est le moteur qui lie ce Dashboard à votre machine.</p>
+                        <p>Assurez-vous que `python bridge.py` tourne en tâche de fond pour lier ce Dashboard.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">2</div>
                     <div class="step-text">
                         <strong>Lien Mental</strong>
-                        <p>Dites simplement <span>"Active le workflow"</span> à l'agent Antigravity pour lui injecter ses 6 compétences de base.</p>
+                        <p>Dites <span>"Active le workflow"</span> à l'agent Antigravity pour injecter les compétences.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">3</div>
                     <div class="step-text">
-                        <strong>Phase d'Action</strong>
-                        <p>Utilisez ce Dashboard pour initialiser vos projets. L'IA s'occupe de la logistique, vous restez concentré sur la création.</p>
+                        <strong>Action</strong>
+                        <p>Utilisez ce Dashboard pour piloter vos projets en un clic.</p>
                     </div>
                 </div>
             </div>
@@ -373,6 +381,33 @@
     <script>
         lucide.createIcons();
 
+        // THEME HANDLING
+        const body = document.body;
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Initial Theme Load
+        const savedTheme = localStorage.getItem('dashboard-theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            updateThemeIcon('sun');
+        } else {
+            updateThemeIcon('moon');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const isLight = body.classList.toggle('light-mode');
+            const newTheme = isLight ? 'light' : 'dark';
+            localStorage.setItem('dashboard-theme', newTheme);
+            updateThemeIcon(isLight ? 'sun' : 'moon');
+        });
+
+        function updateThemeIcon(type) {
+            themeIcon.setAttribute('data-lucide', type);
+            lucide.createIcons();
+        }
+
+        // COMMAND HANDLING
         async function runCmd(cmd) {
             try {
                 const response = await fetch('http://127.0.0.1:8080', {
@@ -382,13 +417,13 @@
                 });
                 
                 if (response.ok) {
-                    showToast("🚀 Commande reçue par Antigravity Engine !");
+                    showToast("🚀 Commande reçue par l'Agent !");
                 } else {
                     throw new Error();
                 }
             } catch (err) {
                 navigator.clipboard.writeText(cmd);
-                showToast("📋 Mode manuel : Commande copiée dans le presse-papier.");
+                showToast("📋 Bridge déconnecté. Commande copiée.");
             }
         }
 
