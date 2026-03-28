@@ -38,13 +38,14 @@ async function fetchGitHubRepos() {
     const username = 'Madumtv';
     
     try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
         const repos = await response.json();
         
         container.innerHTML = ''; // Nettoyer le loading
         
-        // Filtrer : Pas de forks / Ne pas s'afficher soi-même
-        const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== 'portfolio-madum').slice(0, 6);
+        // Filtrer : Pas de forks (ou tout si demandé) / Ne pas s'afficher soi-même
+        // On affiche tout le monde maintenant
+        const filteredRepos = repos.filter(repo => repo.name !== 'portfolio-madum');
         
         filteredRepos.forEach(repo => {
             const card = document.createElement('article');
@@ -80,6 +81,29 @@ async function fetchGitHubRepos() {
 }
 
 fetchGitHubRepos();
+
+// GESTION DU THÈME
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
+const themeIcon = themeBtn.querySelector('i');
+
+// Vérifier LocalStorage
+if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-mode');
+    updateThemeIcon('sun');
+}
+
+themeBtn.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    const isLight = body.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    updateThemeIcon(isLight ? 'sun' : 'moon');
+});
+
+function updateThemeIcon(iconName) {
+    themeBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+    lucide.createIcons();
+}
 
 // FORMULAIRE DE CONTACT (Simulation)
 const form = document.getElementById('contact-form');
