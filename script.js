@@ -87,24 +87,28 @@ fetchGitHubRepos();
 // GESTION DU THÈME
 const themeBtn = document.getElementById('theme-btn');
 const body = document.body;
-const themeIcon = themeBtn.querySelector('i');
 
-// Vérifier LocalStorage
-if (localStorage.getItem('theme') === 'light') {
-    body.classList.add('light-mode');
-    updateThemeIcon('sun');
-}
+if (themeBtn) {
+    // Vérifier LocalStorage au chargement
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        updateThemeIcon('sun');
+    }
 
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('light-mode');
-    const isLight = body.classList.contains('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    updateThemeIcon(isLight ? 'sun' : 'moon');
-});
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcon(isDark ? 'sun' : 'moon');
+    });
 
-function updateThemeIcon(iconName) {
-    themeBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
-    lucide.createIcons();
+    function updateThemeIcon(iconName) {
+        themeBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
 }
 
 // FORMULAIRE DE CONTACT (Envoi réel via EmailJS)

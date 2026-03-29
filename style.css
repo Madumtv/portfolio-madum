@@ -16,7 +16,7 @@
 }
 
 /* DARK MODE / INVERTED ARCHIVE */
-.light-mode { /* On l'inverse pour que le mode par défaut soit clair */
+.dark-mode { /* On définit ici les couleurs du thème sombre */
     --bg-color: #1a1a1a;
     --text-color: #f2f0e4;
     --accent-color: #ef4444;
