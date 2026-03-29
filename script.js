@@ -151,3 +151,34 @@ if (form) {
             });
     });
 }
+
+// ARCHIVIST PROMPT COPY FUNCTION
+const copyBtn = document.getElementById('copy-prompt-btn');
+const promptText = document.getElementById('archivist-prompt-text');
+
+if (copyBtn && promptText) {
+    copyBtn.addEventListener('click', () => {
+        // Sélection du texte
+        promptText.select();
+        promptText.setSelectionRange(0, 99999); // Pour mobile
+
+        // Copie dans le presse-papier
+        navigator.clipboard.writeText(promptText.value).then(() => {
+            // Feedback visuel sur le bouton
+            const originalHTML = copyBtn.innerHTML;
+            const originalBG = copyBtn.style.backgroundColor;
+            
+            copyBtn.innerHTML = '<span>PROMPT COPIÉ !</span><i data-lucide="check"></i>';
+            copyBtn.style.backgroundColor = '#d90000';
+            lucide.createIcons();
+
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHTML;
+                copyBtn.style.backgroundColor = originalBG;
+                lucide.createIcons();
+            }, 2000);
+        }).catch(err => {
+            console.error('Erreur lors de la copie :', err);
+        });
+    });
+}
