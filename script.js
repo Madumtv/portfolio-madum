@@ -40,6 +40,8 @@ applyScrollAnimation();
 // RÉCUPÉRATION GITHUB
 async function fetchGitHubRepos() {
     const container = document.getElementById('github-projects');
+    if (!container) return; // Quitter si l'élément n'existe pas (ex: sur archivist.html)
+    
     const username = 'Madumtv';
     
     try {

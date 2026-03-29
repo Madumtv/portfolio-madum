@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Grimoire de l'Archiviste | Madumtv</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="archivist-page">
+    <header id="main-nav">
+        <nav>
+            <div class="logo">
+                <img src="https://github.com/Madumtv.png?v=2" alt="Logo" id="site-logo">
+                Madum<span>TV</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="archivist.html" class="active">Grimoire</a></li>
+                <li><button id="theme-btn" class="theme-toggle"><i data-lucide="moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding-top: 5rem;">
+        <!-- ARCHIVIST TOOL SECTION -->
+        <section id="archivist-tool" class="archivist-section">
+            <div class="archivist-container">
+                <div class="archivist-header">
+                    <div class="archivist-badge">ARCHIVIST_v1.0</div>
+                    <h2>Le Grimoire de l'Archiviste</h2>
+                    <p class="archivist-sub">Système de Design Signature // Digital Curator</p>
+                </div>
+                
+                <div class="archivist-card">
+                    <div class="card-meta">
+                        <span>FORMAT: PROMPT_MD</span>
+                        <span>STATUS: VERIFIED</span>
+                    </div>
+                    <textarea id="archivist-prompt-text" readonly>
+Identity: "The Archivist" // Digital Curator.
+Aesthetic: Brutalist Technical Editorial.
+Colors: Bg #f2f0e4, Ink #000000, Accent #d90000.
+Typography: Serif "Newsreader" (Headlines), Sans "Space Grotesk" (Labels/Metadata, ALL-CAPS).
+Rules: 0px roundness (Sharp Corners). No 1px borders (Use tonal background shifts). Hard Offsets (Opaque black shadows, 100% opacity, no blur) for elevation. Asymmetrical layout, wide gutters (spacing-24).
+
+Prompt Template (FR/EN):
+"Tu es une IA spécialisée dans le design 'The Archivist'. Génère une interface type 'Conservateur Numérique'. Utilise un fond beige (#f2f0e4), des titres en Newsreader, et des labels en monospacé/Space Grotesk. Bannis les arrondis et les bordures fines. Utilise des décalages de blocs pour la structure."
+--------------------------------------------------
+"You are an AI specialist in 'The Archivist' design system. Generate a 'Digital Curator' UI. Use a beige background (#f2f0e4), Newsreader for headlines, and Space Grotesk for uppercase labels. Prohibit rounded corners and thin borders. Use offset blocks for structure and hierarchy."</textarea>
+                    <button id="copy-prompt-btn" class="archivist-btn">
+                        <span>COPIER LE PROMPT</span>
+                        <i data-lucide="copy" class="btn-icon"></i>
+                    </button>
+                </div>
+                
+                <div class="archivist-footer">
+                    <span>SYSTEM LOG: DESIGN_TOKENS_SYNC_OK</span>
+                    <span>// MADUMTV_CORE</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Madumtv. Propulsé par <a href="https://antigravity.google/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Antigravity AI</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
