@@ -353,10 +353,10 @@ footer {
 
 /* ARCHIVIST TOOL STYLES */
 .archivist-section {
-    background-color: #f2f0e4;
-    color: #000000;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding: 8rem 2rem;
-    font-family: 'Public Sans', sans-serif;
+    font-family: var(--font-body);
 }
 
 .archivist-container {
@@ -368,24 +368,24 @@ footer {
 }
 
 .archivist-header {
-    border-left: 4px solid #000000;
+    border-left: 4px solid var(--text-color);
     padding-left: 1.5rem;
 }
 
 .archivist-badge {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.75rem;
     letter-spacing: 0.1em;
-    background: #000000;
-    color: #f2f0e4;
+    background: var(--text-color);
+    color: var(--bg-color);
     display: inline-block;
     padding: 2px 8px;
     margin-bottom: 1rem;
 }
 
 .archivist-header h2 {
-    font-family: 'Newsreader', serif;
+    font-family: var(--font-heading);
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
@@ -393,7 +393,7 @@ footer {
 }
 
 .archivist-sub {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-mono);
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 0.05em;
@@ -401,10 +401,10 @@ footer {
 }
 
 .archivist-card {
-    background: #ebe8e1;
+    background: var(--card-bg);
     padding: 2.5rem;
-    border: none;
-    box-shadow: 8px 8px 0px #000000;
+    border: 2px solid var(--text-color);
+    box-shadow: 8px 8px 0px var(--text-color);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -413,12 +413,13 @@ footer {
 .card-meta {
     display: flex;
     justify-content: space-between;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-mono);
     font-weight: 600;
     font-size: 0.7rem;
     letter-spacing: 0.1em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--text-color);
     padding-bottom: 0.5rem;
+    opacity: 0.5;
 }
 
 #archivist-prompt-text {
@@ -426,8 +427,8 @@ footer {
     height: 300px;
     background: transparent;
     border: none;
-    color: #000000;
-    font-family: 'Space Grotesk', monospace;
+    color: var(--text-color);
+    font-family: var(--font-mono);
     font-size: 0.95rem;
     line-height: 1.6;
     resize: none;
@@ -437,11 +438,11 @@ footer {
 
 .archivist-btn {
     align-self: flex-start;
-    background: #000000;
-    color: #f2f0e4;
+    background: var(--text-color);
+    color: var(--bg-color);
     border: none;
     padding: 1rem 2rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.1em;
@@ -450,23 +451,23 @@ footer {
     align-items: center;
     gap: 1rem;
     transition: all 0.1s ease;
-    box-shadow: 4px 4px 0px #d90000;
+    box-shadow: 4px 4px 0px var(--accent-color);
 }
 
 .archivist-btn:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #d90000;
+    box-shadow: 6px 6px 0px var(--accent-color);
 }
 
 .archivist-btn:active {
     transform: translate(0px, 0px);
-    box-shadow: 2px 2px 0px #d90000;
+    box-shadow: 2px 2px 0px var(--accent-color);
 }
 
 .archivist-footer {
     display: flex;
     justify-content: space-between;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-mono);
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     font-weight: 700;
