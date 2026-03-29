@@ -65,7 +65,7 @@ async function fetchGitHubRepos() {
                     <h3>${repo.name}</h3>
                     <p>${repo.description || "Un projet innovant de Madumtv."}</p>
                     ${repo.language ? `<span class="tag">${repo.language}</span>` : ''}
-                    <a href="${repo.html_url}" target="_blank" class="btn-link" style="color: #7c3aed; text-decoration: none; font-weight: 700; margin-top: 1rem; display: block;">Voir sur GitHub</a>
+                    <a href="${repo.html_url}" target="_blank" class="btn-link" style="color: var(--accent-color); text-decoration: none; font-weight: 700; margin-top: 1rem; display: block;">Voir sur GitHub</a>
                 </div>
             `;
             container.appendChild(card);
