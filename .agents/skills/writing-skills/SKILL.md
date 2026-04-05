@@ -58,6 +58,12 @@ Concrete method with steps to follow (condition-based-waiting, root-cause-tracin
 ### Pattern
 Way of thinking about problems (flatten-with-flags, test-invariants)
 
+### Project Naming Rule
+**"The Archivist" is a DESIGN SYSTEM.**
+- Do NOT name a project "The Archivist" by default.
+- Always ask the user for a new project name.
+- Reserve "The Archivist" for identity and visual styles.
+
 ### Reference
 API docs, syntax guides, tool documentation (office docs)
 

@@ -5,6 +5,8 @@ param(
 )
 
 # 1. Nom
+Write-Host ">>> ATTENTION : 'The Archivist' est réservé au Système de Design." -ForegroundColor Cyan
+Write-Host ">>> Choisissez un nom de projet distinct." -ForegroundColor Cyan
 if (-not $ProjectName) {
     $ProjectName = Read-Host "Project Name?"
 }
